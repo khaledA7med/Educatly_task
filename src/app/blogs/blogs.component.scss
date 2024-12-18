@@ -1,0 +1,101 @@
+$background-color: #f9f5ff;
+$main-color: #6941c6;
+.header {
+  margin-bottom: 50px;
+  .content {
+    margin: 40px;
+    .heading_text {
+      width: 1024px;
+      margin: 24px;
+      text-align: center;
+      .heading_badge {
+        width: 1024px;
+        margin: 16px;
+        h1 {
+          //styleName: Display lg/Semibold;
+          font-family: "Inter", serif;
+          font-size: 48px;
+          font-weight: 600;
+          line-height: 60px;
+          letter-spacing: -0.02em;
+          text-align: center;
+          text-underline-position: from-font;
+          text-decoration-skip-ink: none;
+          color: $main-color;
+        }
+        .badge {
+          width: 82px !important;
+          height: 28px !important;
+          .badge_text {
+            background-color: #e6daf8;
+            color: $main-color;
+            width: 82px;
+            height: 28px;
+            padding: 4px 12px 4px 12px;
+            border-radius: 16px;
+            -webkit-border-radius: 16px;
+            -moz-border-radius: 16px;
+            -ms-border-radius: 16px;
+            -o-border-radius: 16px;
+            //styleName: Text sm/Medium;
+            font-family: "Inter", serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            text-align: center;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+          }
+        }
+      }
+      .supporting {
+        //styleName: Text xl/Normal;
+        font-family: "Inter", serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+        text-align: center;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: $main-color;
+      }
+    }
+    .search {
+      width: 320px;
+      height: 48px;
+      margin: 6px;
+    }
+  }
+}
+.blogs {
+  margin-top: 50px;
+}
+
+.pagination {
+  .page-item {
+    .page-link {
+      color: $main-color;
+
+      &:hover {
+        color: darken($main-color, 10%);
+      }
+    }
+
+    &.active .page-link {
+      background-color: $main-color;
+      border-color: $main-color;
+      color: #fff;
+    }
+
+    &.disabled .page-link {
+      color: lighten($main-color, 30%);
+    }
+  }
+  .page-item.disabled .page-link {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+  }
+}

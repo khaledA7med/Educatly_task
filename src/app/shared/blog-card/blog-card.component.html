@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-12" *ngIf="allBlogs.length <= 0">
+        <div class="alert alert-secondary text-center" role="alert">
+            There is no blogs to show!
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12" *ngFor="let blog of allBlogs ; let index ">
+        <div class="card">
+            <img class="card-img-top" [src]="blog?.cover_image" alt="Card image">
+            <div class="card-body content">
+                <div class="heading mb-5">
+                    <div class="subheading">{{blog?.type_of}}</div>
+                    <div class="heading_text mb-3 mt-3">
+                        <div class="heading_icon d-flex justify-content-between align-items-baseline">
+                            <div class="text">
+                                {{blog?.title}}
+                            </div>
+                            <div class="icon">
+                                <img src="../../../assets/arrow.png" alt="">
+                            </div>
+                        </div>
+                        <div class="supporting_heading ">
+                            <p>
+                                {{blog?.description}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="avatar d-flex align-items-center">
+                    <div class="avatar_img">
+                        <img [src]="blog?.user?.profile_image_90" alt="">
+                    </div>
+                    <div class="text_supporting d-block">
+                        <div class="text">
+                            {{blog?.user?.name}}
+                        </div>
+                        <div class="supporting_text">
+                            {{blog?.published_at | date}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

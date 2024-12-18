@@ -1,0 +1,60 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>
+<div class="container header mb-5">
+    <div class="content row d-flex justify-content-center">
+        <div class="heading_text row d-flex justify-content-center">
+            <div class="heading_badge">
+                <span class="badge"><span class="badge_text">Our blog</span>
+                </span>
+                <h1>Resources and insights</h1>
+            </div>
+            <div class="supporting">
+                The latest industry news, interviews, technologies, and resources.
+            </div>
+        </div>
+        <div class="search">
+            <input type="search" class="form-control" placeholder="Search">
+        </div>
+    </div>
+</div>
+<div class="container blogs">
+    <div class="content">
+        <div class="alert alert-warning text-center" role="alert" *ngIf="allBlogs.length <= 0">
+            This is a an error while returning blogs <button class="btn btn-outline-info" (click)="getAllBlogs()">click
+                here to
+                try again</button>
+        </div>
+        <app-blog-card [allBlogs]="paginatedBlogs"></app-blog-card>
+
+        <!-- Pagination -->
+        <nav *ngIf="totalPages > 1" aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <!-- Previous Button -->
+                <li class="page-item" [class.disabled]="currentPage === 1">
+                    <button type="button" class="page-link" (click)="changePage(currentPage - 1)"
+                        aria-label="Previous page">
+                        Previous
+                    </button>
+                </li>
+
+                <!-- Page Numbers -->
+                <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage"
+                    [attr.aria-current]="page === currentPage ? 'page' : null">
+                    <button type="button" class="page-link" (click)="changePage(page)">
+                        {{ page }}
+                    </button>
+                </li>
+
+                <!-- Next Button -->
+                <li class="page-item" [class.disabled]="currentPage === totalPages">
+                    <button type="button" class="page-link" (click)="changePage(currentPage + 1)"
+                        aria-label="Next page">
+                        Next
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</div>
